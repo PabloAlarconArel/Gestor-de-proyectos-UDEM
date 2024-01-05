@@ -1,0 +1,35 @@
+{% load static %}
+{% block content %}
+    {% block extra_css %}    
+    {% endblock extra_css %}    
+    <div class="col-md-11">
+        <div class="mb-3">
+            <header class='mb-4'>
+                <h2 class='h2 medium text-blue'>Módulo Escuelas</h2>
+            </header>
+            <div class="container">
+                <div class="row">
+                    <div class="col-sm-4">
+                        <div class="card bg-skin" style="width: auto;">
+                            <div class="card-body">
+                                <h3 class="card-title">Escuelas</h3>
+                                
+                                <div class="d-flex justify-content-center mx-0-5--custom mt-2">
+                                    <a href="{% url 'escuela_list' %}" class="btn" >
+                                        Listado
+                                    </a>
+                                    &nbsp;&nbsp;&nbsp;&nbsp;
+                                    <a href="{% url 'escuela_add' %}" class="btn" >
+                                        Nuevo
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>                                   
+                </div>
+            </div>            
+        </div>
+    </div>
+    {% block extrajs %}    
+    {% endblock extrajs %}    
+{% endblock %}
