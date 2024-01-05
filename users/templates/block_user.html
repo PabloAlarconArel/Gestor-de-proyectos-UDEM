@@ -1,0 +1,23 @@
+{% block titulo %}
+UDEM | Block Users
+{% endblock titulo %}
+{% block body %}
+
+<div class="card">
+    <div class="card-header">
+        <strong class="card-title">
+            Block Users UDEM
+        </strong>
+    </div>
+    <div class="table-stats order-table ov-h">
+        <form method="POST">
+            {% csrf_token %}
+            <h3>¿Do you want to block {{object.names}} {{object.lastnames}}?</h3>
+            <div>
+                <button class="btm btn-danger" type="submit">Yes, block</button>
+                <a href="{% url 'users:list_user' %}" class="btn btn-danger">CANCEL</a>
+            </div>
+    </div>        
+</div>
+    
+{% endblock body %}

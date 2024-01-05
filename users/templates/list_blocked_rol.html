@@ -1,0 +1,43 @@
+{% block titulo%}
+UDEM | Lista de Roles
+{% endblock titulo %}
+
+{% block body %}
+
+{% if object_list %}
+<div class="card"> 
+    <div class="card-title">Lista de roles UDEM</div>
+</div>
+<div class="table-stats order-table ov-h">
+    <table class="table">
+        <thead>
+            <tr>      
+                <th>ID</th>
+                <th>Nombre</th>
+                <th>Estado</th>
+            </tr>
+        </thead>
+        <tbody>
+            
+            {% for Rol in object_list %}
+            <tr>
+                <td>{{Rol.id}}</td>
+                <td>{{Rol.name}}</td>
+                <td>{{Rol.its_active}}</td>
+                <td>
+                    <a href="{% url 'users:unblock_rol' Rol.id %}" class="btn btn-danger">Desbloquear</a>
+                </td>
+            </tr>
+            {% endfor %}
+            {% else %}
+            <div class="card"> 
+                <div class="card-title">Lista de roles UDEM</div>
+            </div>
+            <div class="card"> 
+                <td class="card-title">Disculpe, no hay roles bloqueados.</td>
+            </div>
+            {% endif %}
+        </tbody>
+    </table>
+</div>
+{% endblock body %} 

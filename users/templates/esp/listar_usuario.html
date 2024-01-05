@@ -1,0 +1,46 @@
+{% block titulo%}
+UDEM | Listado de Usuarios
+{% endblock titulo %}
+
+{% block body %}
+
+{% if object_list %}
+<div class="card"> 
+    <div class="card-title">Listado de Usuarios UDEM</div>
+</div>
+<div class="table-stats order-table ov-h">
+    <table class="table">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Email</th>
+                <th>Nombres</th>
+                <th>Apellidos</th>
+                <th>Teléfono</th>
+                <th>Estado</th>
+                <th>Staff</th>
+                <th>Opciones</th>          
+            </tr>
+        </thead>
+        <tbody>
+            
+            {% for users in object_list %}
+            <tr>
+                <td>{{users.id}}</td>
+                <td>{{users.email}}</td>
+                <td>{{users.names}}</td>
+                <td>{{users.lastnames}}</td>
+                <td>{{users.phone}}</td>
+                <td>{{users.is_active}}</td>
+                <td>{{users.is_staff}}</td>
+                <td>
+                    <a href="" class="btn btn-danger">Bloquear</a>
+                    <a href="{% url 'users:update_user' users.id %}" class="btn btn-primary">Editar</a>
+                </td>
+            </tr>
+            {% endfor %}
+                
+
+{% endif %}
+    
+{% endblock body %}

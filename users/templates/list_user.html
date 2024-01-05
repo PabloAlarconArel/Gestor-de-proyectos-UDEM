@@ -1,0 +1,68 @@
+{% block titulo%}
+UDEM | List users
+{% endblock titulo %}
+
+{% block body %}
+
+<div class="card"> 
+    <div class="card-title">List users UDEM</div>
+    <form method="get" action="" class='col-12 col-lg-6 input-container-search my-auto me-3'>
+        <input name="search" type="text" placeholder='Buscar por orden'/>
+        <button type="submit"> search </button>
+    <form>  
+</div> 
+<div class="card">
+    <div class="card-title">Filter</div>
+</div>
+<div class="card">
+    <a href="{% url 'users:list_blocked_user' %}">Blocked users list</a>
+</div> 
+<div class="table-stats order-table ov-h">
+    <table class="table">
+        <thead>
+            <tr>      
+                <th>ID</th>
+                <th>Email</th>
+                <th>Names</th>
+                <th>Lastnames</th>
+                <th>Phone number</th>
+                <th>Rol</th>
+                <th>Options</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% if page_obj %}
+            {% for users in page_obj %}
+            <tr>
+                <td>{{users.id}}</td>
+                <td>{{users.email}}</td>
+                <td>{{users.names}}</td>
+                <td>{{users.lastnames}}</td>
+                <td>{{users.phone}}</td>
+                <td>{{users.role}}</td>
+                <td>
+                    <a href="{% url 'users:block_user' users.id %}" class="btn btn-danger">Block</a>
+                    <a href="{% url 'users:update_user' users.id %}" class="btn btn-primary">Update</a>
+                </td>
+            </tr>
+            {% endfor %}
+            {% else %}
+            <div class="card"> 
+                <td class="card-title">Sorry, no users in this list.</td>
+            </div>  
+            {% endif %}
+        </tbody>
+    </table>
+</div>
+<ul class="pager">
+	<li>
+		{% if page_obj.has_previous %}
+       	 <a href="?page={{ page_obj.previous_page_number}}">Previous</a>
+		{% endif %}
+        </li>
+	<li>
+		{% if page_obj.has_next %}
+     	 <a href="?page={{ page_obj.next_page_number}}">Next</a> 
+    	{% endif %} 
+
+{% endblock body %}

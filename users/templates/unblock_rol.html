@@ -1,0 +1,24 @@
+{% block titulo %}
+UDEM | Unlock users
+{% endblock titulo %}
+{% block body %}
+
+<div class="card">
+    <div class="card-header">
+        <strong class="card-title">
+            Unlock users UDEM
+        </strong>
+    </div>
+    <div class="table-stats order-table ov-h">
+        <form method="POST">
+            {% csrf_token %}
+            <h3>¿Quiere desbloquear el rol {{object.name}}?</h3>
+            <input type= "checkbox" id="its_active" name="its_active" style="display:none" checked="checked">
+            <div>
+                <button class="btm btn-danger" type="submit">Sí, desbloquear</button>
+                <a href="{% url 'users:list_blocked_rol' %}" class="btn btn-danger">Cancelar</a>
+            </div>
+    </div>        
+</div>
+    
+{% endblock body %}

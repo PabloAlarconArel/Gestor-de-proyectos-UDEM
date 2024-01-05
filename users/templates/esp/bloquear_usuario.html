@@ -1,0 +1,23 @@
+{% block titulo %}
+UDEM | Bloquear Usuarios
+{% endblock titulo %}
+{% block body %}
+
+<div class="card">
+    <div class="card-header">
+        <strong class="card-title">
+            Bloquear de Usuarios UDEM
+        </strong>
+    </div>
+    <div class="table-stats order-table ov-h">
+        <form method="POST">
+            {% csrf_token %}
+            <h3>¿Desea bloquear a {{usuarios.nombres}} {{usuarios.apellidos}}?</h3>
+            <div>
+                <button class="btm btn-danger" type="submit">Sí, bloquear</button>
+                <a href="{% url 'usuarios:listar_usuario' %}" class="btn btn-danger">Cancelar</a>
+            </div>
+    </div>        
+</div>
+    
+{% endblock body %}

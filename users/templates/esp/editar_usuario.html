@@ -1,0 +1,23 @@
+{% block titulo %}
+UDEM | Editar Usuarios
+{% endblock titulo %}
+{% block body %}
+
+<div class="card">
+    <div class="card-header">
+        <strong class="card-title">
+            Editar de Usuarios UDEM
+        </strong>
+    </div>
+    <div class="table-stats order-table ov-h">
+        <form method="POST">
+            {% csrf_token %}
+            {{form.as_p}}
+            <div>
+                <a href="{% url 'users:list_user' %}" class="btn btn-danger">Cancelar</a>
+                <button type="submit">Editar</button>
+            </div>
+    </div>        
+</div>
+    
+{% endblock body %}
