@@ -1,0 +1,9 @@
+django == 4.0.7
+pillow
+pylint
+pylint-django
+psycopg2
+django-bower
+django-admin-interface
+django-crispy-forms
+crispy-bootstrap5
