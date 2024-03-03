@@ -103,9 +103,9 @@ DATABASES = {
 
         'HOST':'localhost',
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'UDEM',
-        'USER':'postgres',
-        'PASSWORD':'Especialidad1',
+        'NAME': '',
+        'USER':'',
+        'PASSWORD':'',
         'PORT':'5433'
     }
 }
